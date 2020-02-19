@@ -1,0 +1,3763 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://www.kesci.com/api/labs/5e4d17e480da780037bfc5f1/RenderedContent -->
+<html lang="zh-cmn-Hans"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <title>【抗击新冠特别篇】33题数据可视化实战 - Kesci.com</title>
+  <link href="https://cdn.kesci.com/favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <link href="./2019-nCoV-Viz_files/styles.css" rel="stylesheet">
+  <link href="./2019-nCoV-Viz_files/notebook.css" rel="stylesheet">
+
+  <script src="./2019-nCoV-Viz_files/jquery.min.js"></script>
+  <script src="./2019-nCoV-Viz_files/require.js"></script>
+  <script src="./2019-nCoV-Viz_files/moment.min.js"></script>
+  <script src="./2019-nCoV-Viz_files/bootstrap.min.js"></script>
+  <script>
+    window.KLAB_VIEWER_DATA = {
+      contentUrl: 'https://s3.cn-north-1.amazonaws.com.cn/kesci-nbrender-content/20200219/a2551dc7-33d6-4a6f-be51-4c329af881b6.html.gz',
+    };
+  </script>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body class="nbviewer"><div id="MathJax_Message" style="display: none;"></div>
+  <div class="container-main container">
+    <div id="notebook">
+      <div id="notebook-container"><div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="This-post-is-inspired-by-2019-Novel-Coronavirus-COVID-19-(2019-nCoV)-situation-in-China.-The-purpose-is-for-private-use-and-will-not-be-updated-frequently.-Data-sources-include-JHU-CSSE-and-other-official-repo.">This post is inspired by 2019 Novel Coronavirus COVID-19 (2019-nCoV) situation in China. The purpose is for private use and will not be updated frequently. Data sources include JHU CSSE and other official repo.<a class="anchor-link" href="https://www.kesci.com/api/labs/5e4d17e480da780037bfc5f1/RenderedContent#This-post-is-inspired-by-2019-Novel-Coronavirus-COVID-19-(2019-nCoV)-situation-in-China.-The-purpose-is-for-private-use-and-will-not-be-updated-frequently.-Data-sources-include-JHU-CSSE-and-other-official-repo.">¶</a></h2>
+</div>
+</div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">folium</span> <span class="c1"># geomap visualization</span>
+<span class="kn">import</span> <span class="nn">folium.plugins</span> <span class="k">as</span> <span class="nn">plugins</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Matplotlib is building the font cache using fc-list. This may take a moment.
+/opt/conda/lib/python3.6/site-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.25.7) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+</pre>
+</div>
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load dataset</span>
+<span class="n">data</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"/home/kesci/input/2019ncov5600/2019_nCoV_data.csv"</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sno</th>
+      <th>Date</th>
+      <th>Province/State</th>
+      <th>Country</th>
+      <th>Last Update</th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Anhui</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Beijing</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>14</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Chongqing</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Fujian</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Gansu</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Guangdong</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>26</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Guangxi</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Guizhou</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Hainan</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Hebei</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Heilongjiang</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Henan</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Hong Kong</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Hubei</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>444</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Hunan</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Inner Mongolia</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Jiangsu</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Jiangxi</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Jilin</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Liaoning</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Macau</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Ningxia</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Qinghai</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Shaanxi</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Shandong</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Shanghai</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Shanxi</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Sichuan</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>29</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Taiwan</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>Tianjin</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1614</th>
+      <td>1615</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>New South Wales</td>
+      <td>Australia</td>
+      <td>2020-02-13T17:53:03</td>
+      <td>4</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1615</th>
+      <td>1616</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Victoria</td>
+      <td>Australia</td>
+      <td>2020-02-13T17:53:03</td>
+      <td>4</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1616</th>
+      <td>1617</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>British Columbia</td>
+      <td>Canada</td>
+      <td>2020-02-07T05:43:03</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1617</th>
+      <td>1618</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>India</td>
+      <td>2020-02-16T07:43:02</td>
+      <td>3</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1618</th>
+      <td>1619</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Italy</td>
+      <td>2020-02-07T17:53:02</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1619</th>
+      <td>1620</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Philippines</td>
+      <td>2020-02-12T07:43:02</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1620</th>
+      <td>1621</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>South Australia</td>
+      <td>Australia</td>
+      <td>2020-02-02T22:33:07</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1621</th>
+      <td>1622</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Toronto, ON</td>
+      <td>Canada</td>
+      <td>2020-02-04T00:13:06</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1622</th>
+      <td>1623</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Russia</td>
+      <td>2020-02-12T14:43:03</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1623</th>
+      <td>1624</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Spain</td>
+      <td>2020-02-15T17:23:04</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1624</th>
+      <td>1625</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Chicago, IL</td>
+      <td>US</td>
+      <td>2020-02-09T19:03:03</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1625</th>
+      <td>1626</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>San Benito, CA</td>
+      <td>US</td>
+      <td>2020-02-03T03:53:02</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1626</th>
+      <td>1627</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>San Diego County, CA</td>
+      <td>US</td>
+      <td>2020-02-13T03:13:08</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1627</th>
+      <td>1628</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Santa Clara, CA</td>
+      <td>US</td>
+      <td>2020-02-03T00:43:02</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1628</th>
+      <td>1629</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Belgium</td>
+      <td>2020-02-04T15:43:02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1629</th>
+      <td>1630</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Cambodia</td>
+      <td>2020-02-12T07:43:02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1630</th>
+      <td>1631</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>London, ON</td>
+      <td>Canada</td>
+      <td>2020-02-12T18:53:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1631</th>
+      <td>1632</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Egypt</td>
+      <td>2020-02-14T23:53:02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1632</th>
+      <td>1633</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Finland</td>
+      <td>2020-02-12T00:03:12</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1633</th>
+      <td>1634</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Tibet</td>
+      <td>Mainland China</td>
+      <td>2020-02-12T06:43:02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1634</th>
+      <td>1635</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Nepal</td>
+      <td>2020-02-12T14:43:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1635</th>
+      <td>1636</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Sri Lanka</td>
+      <td>2020-02-08T03:43:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1636</th>
+      <td>1637</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>NaN</td>
+      <td>Sweden</td>
+      <td>2020-02-01T02:13:26</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1637</th>
+      <td>1638</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Boston, MA</td>
+      <td>US</td>
+      <td>2020-02-01T19:43:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1638</th>
+      <td>1639</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Los Angeles, CA</td>
+      <td>US</td>
+      <td>2020-02-01T19:53:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1639</th>
+      <td>1640</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Madison, WI</td>
+      <td>US</td>
+      <td>2020-02-05T21:53:02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1640</th>
+      <td>1641</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Orange, CA</td>
+      <td>US</td>
+      <td>2020-02-01T19:53:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1641</th>
+      <td>1642</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>San Antonio, TX</td>
+      <td>US</td>
+      <td>2020-02-13T18:53:02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1642</th>
+      <td>1643</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Seattle, WA</td>
+      <td>US</td>
+      <td>2020-02-09T07:03:04</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1643</th>
+      <td>1644</td>
+      <td>02/16/2020 20:44:00</td>
+      <td>Tempe, AZ</td>
+      <td>US</td>
+      <td>2020-02-01T19:43:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>1644 rows × 8 columns</p>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 1644 entries, 0 to 1643
+Data columns (total 8 columns):
+Sno               1644 non-null int64
+Date              1644 non-null object
+Province/State    1204 non-null object
+Country           1644 non-null object
+Last Update       1644 non-null object
+Confirmed         1644 non-null int64
+Deaths            1644 non-null int64
+Recovered         1644 non-null int64
+dtypes: int64(4), object(4)
+memory usage: 102.8+ KB
+</pre>
+</div>
+</div>
+
+</div></div>
+
+    </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Data-Cleaning">Data Cleaning<a class="anchor-link" href="https://www.kesci.com/api/labs/5e4d17e480da780037bfc5f1/RenderedContent#Data-Cleaning">¶</a></h3>
+</div>
+</div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop Sno column</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'Sno'</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># replace missing value in the province/state column with space</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'Province/State'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop the countries where do not have confirmed cases</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">'Confirmed'</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check the remaining countries that have cases</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'Country'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>['China', 'US', 'Japan', 'Thailand', 'South Korea', 'Mainland China', 'Hong Kong', 'Macau', 'Taiwan', 'Singapore', 'Vietnam', 'France', 'Australia', 'Nepal', 'Malaysia', 'Canada', 'Cambodia', 'Sri Lanka', 'Germany', 'Finland', 'United Arab Emirates', 'Philippines', 'India', 'Italy', 'Sweden', 'Russia', 'Spain', 'UK', 'Belgium', 'Others', 'Egypt']
+</pre>
+</div>
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## as we can see there exists Mainland China besides China, and Macau/Hong Kong are listed outside separately</span>
+<span class="c1">## so we need to fix that</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">'Country'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">'Mainland China'</span><span class="p">:</span><span class="s1">'China'</span><span class="p">,</span><span class="s1">'Hong Kong'</span><span class="p">:</span><span class="s1">'China'</span><span class="p">,</span><span class="s1">'Macau'</span><span class="p">:</span><span class="s1">'China'</span><span class="p">},</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">'Confirmed'</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">][</span><span class="s1">'Country'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Countries that have confirmed cases：'</span><span class="p">,</span> <span class="n">countries</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Number of countries that have confirmed cases：'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">countries</span><span class="p">))</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Countries that have confirmed cases： ['China', 'US', 'Japan', 'Thailand', 'South Korea', 'Taiwan', 'Singapore', 'Vietnam', 'France', 'Australia', 'Nepal', 'Malaysia', 'Canada', 'Cambodia', 'Sri Lanka', 'Germany', 'Finland', 'United Arab Emirates', 'Philippines', 'India', 'Italy', 'Sweden', 'Russia', 'Spain', 'UK', 'Belgium', 'Others', 'Egypt']
+
+
+Number of countries that have confirmed cases： 28
+</pre>
+</div>
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we can see the data is not sorted by time</span>
+<span class="c1"># but we are interested in the latest data for each country to compare</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># change the column Date to datetime type in pandas</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Province/State</th>
+      <th>Country</th>
+      <th>Last Update</th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-01-22 12:00:00</td>
+      <td>Anhui</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-01-22 12:00:00</td>
+      <td>Beijing</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>14</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-01-22 12:00:00</td>
+      <td>Chongqing</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-01-22 12:00:00</td>
+      <td>Fujian</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2020-01-22 12:00:00</td>
+      <td>Guangdong</td>
+      <td>China</td>
+      <td>01/22/2020 12:00:00</td>
+      <td>26</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># group by country and region and filter by date</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Country'</span><span class="p">,</span><span class="s1">'Province/State'</span><span class="p">])</span>
+<span class="n">latest</span> <span class="o">=</span> <span class="n">grouped</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+<span class="n">data_latest</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">latest</span><span class="p">]</span>
+<span class="n">data_latest</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Province/State</th>
+      <th>Country</th>
+      <th>Last Update</th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>211</th>
+      <td>2020-01-26 23:00:00</td>
+      <td></td>
+      <td>Australia</td>
+      <td>01/26/2020 23:00:00</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1614</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>New South Wales</td>
+      <td>Australia</td>
+      <td>2020-02-13T17:53:03</td>
+      <td>4</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1613</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Queensland</td>
+      <td>Australia</td>
+      <td>2020-02-09T19:33:02</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1620</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>South Australia</td>
+      <td>Australia</td>
+      <td>2020-02-02T22:33:07</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1615</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Victoria</td>
+      <td>Australia</td>
+      <td>2020-02-13T17:53:03</td>
+      <td>4</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1628</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>Belgium</td>
+      <td>2020-02-04T15:43:02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1629</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>Cambodia</td>
+      <td>2020-02-12T07:43:02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1616</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>British Columbia</td>
+      <td>Canada</td>
+      <td>2020-02-07T05:43:03</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1630</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>London, ON</td>
+      <td>Canada</td>
+      <td>2020-02-12T18:53:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>608</th>
+      <td>2020-02-02 21:00:00</td>
+      <td>Ontario</td>
+      <td>Canada</td>
+      <td>2020/1/2 18:12</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1621</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Toronto, ON</td>
+      <td>Canada</td>
+      <td>2020-02-04T00:13:06</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1574</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Anhui</td>
+      <td>China</td>
+      <td>2020-02-16T08:33:02</td>
+      <td>962</td>
+      <td>6</td>
+      <td>255</td>
+    </tr>
+    <tr>
+      <th>1581</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Beijing</td>
+      <td>China</td>
+      <td>2020-02-16T10:03:06</td>
+      <td>380</td>
+      <td>4</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <th>1577</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Chongqing</td>
+      <td>China</td>
+      <td>2020-02-16T23:53:01</td>
+      <td>551</td>
+      <td>5</td>
+      <td>207</td>
+    </tr>
+    <tr>
+      <th>1585</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Fujian</td>
+      <td>China</td>
+      <td>2020-02-16T12:03:06</td>
+      <td>287</td>
+      <td>0</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>1594</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Gansu</td>
+      <td>China</td>
+      <td>2020-02-16T13:53:03</td>
+      <td>90</td>
+      <td>2</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>1570</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Guangdong</td>
+      <td>China</td>
+      <td>2020-02-16T12:03:06</td>
+      <td>1316</td>
+      <td>2</td>
+      <td>465</td>
+    </tr>
+    <tr>
+      <th>1586</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Guangxi</td>
+      <td>China</td>
+      <td>2020-02-16T12:03:06</td>
+      <td>237</td>
+      <td>2</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>1590</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Guizhou</td>
+      <td>China</td>
+      <td>2020-02-16T09:13:09</td>
+      <td>144</td>
+      <td>1</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>1589</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Hainan</td>
+      <td>China</td>
+      <td>2020-02-16T12:03:06</td>
+      <td>162</td>
+      <td>4</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>1584</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Hebei</td>
+      <td>China</td>
+      <td>2020-02-16T12:03:06</td>
+      <td>300</td>
+      <td>3</td>
+      <td>105</td>
+    </tr>
+    <tr>
+      <th>1580</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Heilongjiang</td>
+      <td>China</td>
+      <td>2020-02-16T13:53:03</td>
+      <td>445</td>
+      <td>11</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <th>1571</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Henan</td>
+      <td>China</td>
+      <td>2020-02-16T13:53:03</td>
+      <td>1231</td>
+      <td>13</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <th>1601</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Hong Kong</td>
+      <td>China</td>
+      <td>2020-02-16T09:53:01</td>
+      <td>57</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1569</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Hubei</td>
+      <td>China</td>
+      <td>2020-02-16T23:53:01</td>
+      <td>58182</td>
+      <td>1696</td>
+      <td>6639</td>
+    </tr>
+    <tr>
+      <th>1573</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Hunan</td>
+      <td>China</td>
+      <td>2020-02-16T13:13:04</td>
+      <td>1004</td>
+      <td>3</td>
+      <td>464</td>
+    </tr>
+    <tr>
+      <th>1598</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Inner Mongolia</td>
+      <td>China</td>
+      <td>2020-02-16T08:33:02</td>
+      <td>70</td>
+      <td>0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1576</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Jiangsu</td>
+      <td>China</td>
+      <td>2020-02-16T09:33:02</td>
+      <td>617</td>
+      <td>0</td>
+      <td>218</td>
+    </tr>
+    <tr>
+      <th>1575</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Jiangxi</td>
+      <td>China</td>
+      <td>2020-02-16T10:03:06</td>
+      <td>925</td>
+      <td>1</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <th>1595</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Jilin</td>
+      <td>China</td>
+      <td>2020-02-16T10:03:06</td>
+      <td>89</td>
+      <td>1</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1009</th>
+      <td>2020-02-08 23:04:00</td>
+      <td>Cruise Ship</td>
+      <td>Others</td>
+      <td>2002/7/20 16:33</td>
+      <td>61</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1582</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Diamond Princess cruise ship</td>
+      <td>Others</td>
+      <td>2020-02-16T03:43:02</td>
+      <td>355</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1619</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>Philippines</td>
+      <td>2020-02-12T07:43:02</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1622</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>Russia</td>
+      <td>2020-02-12T14:43:03</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1596</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>Singapore</td>
+      <td>2020-02-16T16:23:06</td>
+      <td>75</td>
+      <td>0</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>1603</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>South Korea</td>
+      <td>2020-02-16T01:33:02</td>
+      <td>29</td>
+      <td>0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>1623</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>Spain</td>
+      <td>2020-02-15T17:23:04</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1635</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>Sri Lanka</td>
+      <td>2020-02-08T03:43:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1636</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>Sweden</td>
+      <td>2020-02-01T02:13:26</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1605</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Taiwan</td>
+      <td>Taiwan</td>
+      <td>2020-02-16T11:23:06</td>
+      <td>20</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1602</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>Thailand</td>
+      <td>2020-02-16T18:03:02</td>
+      <td>34</td>
+      <td>0</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>1611</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>UK</td>
+      <td>2020-02-16T16:23:06</td>
+      <td>9</td>
+      <td>0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>471</th>
+      <td>2020-01-31 19:00:00</td>
+      <td>Arizona</td>
+      <td>US</td>
+      <td>01/31/2020 19:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1637</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Boston, MA</td>
+      <td>US</td>
+      <td>2020-02-01T19:43:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>2020-01-31 19:00:00</td>
+      <td>California</td>
+      <td>US</td>
+      <td>01/31/2020 19:00:00</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>2020-01-24 12:00:00</td>
+      <td>Chicago</td>
+      <td>US</td>
+      <td>01/24/2020 12:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1624</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Chicago, IL</td>
+      <td>US</td>
+      <td>2020-02-09T19:03:03</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>469</th>
+      <td>2020-01-31 19:00:00</td>
+      <td>Illinois</td>
+      <td>US</td>
+      <td>01/31/2020 19:00:00</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1638</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Los Angeles, CA</td>
+      <td>US</td>
+      <td>2020-02-01T19:53:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1639</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Madison, WI</td>
+      <td>US</td>
+      <td>2020-02-05T21:53:02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1640</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Orange, CA</td>
+      <td>US</td>
+      <td>2020-02-01T19:53:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1641</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>San Antonio, TX</td>
+      <td>US</td>
+      <td>2020-02-13T18:53:02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1625</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>San Benito, CA</td>
+      <td>US</td>
+      <td>2020-02-03T03:53:02</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1626</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>San Diego County, CA</td>
+      <td>US</td>
+      <td>2020-02-13T03:13:08</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1627</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Santa Clara, CA</td>
+      <td>US</td>
+      <td>2020-02-03T00:43:02</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1642</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Seattle, WA</td>
+      <td>US</td>
+      <td>2020-02-09T07:03:04</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1643</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Tempe, AZ</td>
+      <td>US</td>
+      <td>2020-02-01T19:43:03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>468</th>
+      <td>2020-01-31 19:00:00</td>
+      <td>Washington</td>
+      <td>US</td>
+      <td>01/31/2020 19:00:00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1612</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>United Arab Emirates</td>
+      <td>2020-02-16T20:43:02</td>
+      <td>9</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1608</th>
+      <td>2020-02-16 20:44:00</td>
+      <td></td>
+      <td>Vietnam</td>
+      <td>2020-02-13T06:33:02</td>
+      <td>16</td>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+<p>85 rows × 7 columns</p>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>又发现一个问题，比如Australia，一开始是以国家为单位报数据，之后又分成小区域报数据，会导致计算重复，所以要删除这部分数据。也不能直接删，因为不知道有多少国家的数据有这个问题。</p>
+
+</div>
+</div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># filter and remove data where city is missing and the country has more than one city value</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># filter and remove data where city is missing and the country has more than one city value</span>
+<span class="n">useless</span><span class="o">=</span><span class="n">data_latest</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">data_latest</span><span class="p">[</span><span class="s1">'Province/State'</span><span class="p">]</span><span class="o">==</span><span class="s1">''</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="p">(</span><span class="n">data_latest</span><span class="p">[</span><span class="s1">'Country'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">data_latest</span><span class="p">[</span><span class="s1">'Country'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="n">x</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    
+<span class="n">useless</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[211, 1607]</pre>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_latest</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">useless</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Visualization">Visualization<a class="anchor-link" href="https://www.kesci.com/api/labs/5e4d17e480da780037bfc5f1/RenderedContent#Visualization">¶</a></h3>
+</div>
+</div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check the total number of cases by country</span>
+<span class="n">world_cases</span> <span class="o">=</span> <span class="n">data_latest</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Country'</span><span class="p">])[</span><span class="s1">'Confirmed'</span><span class="p">,</span><span class="s1">'Deaths'</span><span class="p">,</span><span class="s1">'Recovered'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'Confirmed'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">world_cases</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>China</th>
+      <td>70514</td>
+      <td>1766</td>
+      <td>10755</td>
+    </tr>
+    <tr>
+      <th>Others</th>
+      <td>416</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Singapore</th>
+      <td>75</td>
+      <td>0</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>59</td>
+      <td>1</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>Thailand</th>
+      <td>34</td>
+      <td>0</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>South Korea</th>
+      <td>29</td>
+      <td>0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>US</th>
+      <td>23</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Malaysia</th>
+      <td>22</td>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Taiwan</th>
+      <td>20</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Vietnam</th>
+      <td>16</td>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>15</td>
+      <td>0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>12</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Canada</th>
+      <td>10</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>United Arab Emirates</th>
+      <td>9</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>UK</th>
+      <td>9</td>
+      <td>0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>India</th>
+      <td>3</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Italy</th>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Philippines</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Russia</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Spain</th>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Finland</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Sri Lanka</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Sweden</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Egypt</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Belgium</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Cambodia</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Nepal</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">world_cases</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">world_cases</span><span class="p">[</span><span class="s1">'Confirmed'</span><span class="p">][</span><span class="mi">1</span><span class="p">:],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'lightcoral'</span><span class="p">)</span> <span class="c1">#exclude China as</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;BarContainer object of 27 artists&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<img src="./2019-nCoV-Viz_files/q5y6ln46hc.png">
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load coordinated data</span>
+<span class="n">world_coordinates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'/home/kesci/input/2019ncov5600/world_coordinates.csv'</span><span class="p">)</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># combine the location data and the country cases</span>
+<span class="n">world_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">world_coordinates</span><span class="p">,</span><span class="n">world_cases</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">'Country'</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'Confirmed'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">world_data</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Code</th>
+      <th>Country</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>CN</td>
+      <td>China</td>
+      <td>35.861660</td>
+      <td>104.195397</td>
+      <td>70514</td>
+      <td>1766</td>
+      <td>10755</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>SG</td>
+      <td>Singapore</td>
+      <td>1.352083</td>
+      <td>103.819836</td>
+      <td>75</td>
+      <td>0</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>JP</td>
+      <td>Japan</td>
+      <td>36.204824</td>
+      <td>138.252924</td>
+      <td>59</td>
+      <td>1</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>TH</td>
+      <td>Thailand</td>
+      <td>15.870032</td>
+      <td>100.992541</td>
+      <td>34</td>
+      <td>0</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>KR</td>
+      <td>South Korea</td>
+      <td>35.907757</td>
+      <td>127.766922</td>
+      <td>29</td>
+      <td>0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>US</td>
+      <td>US</td>
+      <td>37.090240</td>
+      <td>-95.712891</td>
+      <td>23</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>MY</td>
+      <td>Malaysia</td>
+      <td>4.210484</td>
+      <td>101.975766</td>
+      <td>22</td>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>TW</td>
+      <td>Taiwan</td>
+      <td>23.697810</td>
+      <td>120.960515</td>
+      <td>20</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>VN</td>
+      <td>Vietnam</td>
+      <td>14.058324</td>
+      <td>108.277199</td>
+      <td>16</td>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AU</td>
+      <td>Australia</td>
+      <td>-25.274398</td>
+      <td>133.775136</td>
+      <td>15</td>
+      <td>0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>FR</td>
+      <td>France</td>
+      <td>46.227638</td>
+      <td>2.213749</td>
+      <td>12</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CA</td>
+      <td>Canada</td>
+      <td>56.130366</td>
+      <td>-106.346771</td>
+      <td>10</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>GB</td>
+      <td>UK</td>
+      <td>55.378051</td>
+      <td>-3.435973</td>
+      <td>9</td>
+      <td>0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>AE</td>
+      <td>United Arab Emirates</td>
+      <td>23.424076</td>
+      <td>53.847818</td>
+      <td>9</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>DE</td>
+      <td>Germany</td>
+      <td>51.165691</td>
+      <td>10.451526</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>IT</td>
+      <td>Italy</td>
+      <td>41.871940</td>
+      <td>12.567380</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>PH</td>
+      <td>Philippines</td>
+      <td>12.879721</td>
+      <td>121.774017</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>IN</td>
+      <td>India</td>
+      <td>20.593684</td>
+      <td>78.962880</td>
+      <td>3</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>ES</td>
+      <td>Spain</td>
+      <td>40.463667</td>
+      <td>-3.749220</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>RU</td>
+      <td>Russia</td>
+      <td>61.524010</td>
+      <td>105.318756</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>KH</td>
+      <td>Cambodia</td>
+      <td>12.565679</td>
+      <td>104.990963</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>FI</td>
+      <td>Finland</td>
+      <td>61.924110</td>
+      <td>25.748151</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>LK</td>
+      <td>Sri Lanka</td>
+      <td>7.873054</td>
+      <td>80.771797</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>SE</td>
+      <td>Sweden</td>
+      <td>60.128161</td>
+      <td>18.643501</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>EG</td>
+      <td>Egypt</td>
+      <td>26.820553</td>
+      <td>30.802498</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BE</td>
+      <td>Belgium</td>
+      <td>50.503887</td>
+      <td>4.469936</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>NP</td>
+      <td>Nepal</td>
+      <td>28.394857</td>
+      <td>84.124008</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># initialize world map using folium</span>
+<span class="n">world_map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mf">2.3</span><span class="p">)</span>
+<span class="n">world_map</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="./2019-nCoV-Viz_files/saved_resource.html" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>14.先尝试在地图上画出中国的点</p>
+
+</div>
+</div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># build coordinates</span>
+<span class="n">lat</span><span class="o">=</span><span class="n">world_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'latitude'</span><span class="p">]</span>
+<span class="n">lon</span><span class="o">=</span><span class="n">world_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'longitude'</span><span class="p">]</span>
+
+<span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">([</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span>
+                    <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+                    <span class="n">fill_color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+                    <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                    <span class="n">popup</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'&lt;strong&gt;Country&lt;/strong&gt;: China&lt;br&gt;'</span>
+                                <span class="s1">'&lt;strong&gt;Confirmed&lt;/strong&gt;: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">world_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'Confirmed'</span><span class="p">])</span> <span class="o">+</span> <span class="s1">'&lt;br&gt;'</span><span class="p">)</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">world_map</span><span class="p">)</span>
+<span class="n">world_map</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="./2019-nCoV-Viz_files/saved_resource(1).html" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot other countries</span>
+
+<span class="k">for</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+    <span class="n">world_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="s1">'latitude'</span><span class="p">],</span> 
+    <span class="n">world_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="s1">'longitude'</span><span class="p">],</span> 
+    <span class="n">world_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="s1">'Confirmed'</span><span class="p">],</span>
+    <span class="n">world_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="s1">'Country'</span><span class="p">]):</span>
+    
+    <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">([</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span>
+                        <span class="n">radius</span><span class="o">=</span><span class="n">value</span><span class="o">*</span><span class="mf">0.2</span><span class="p">,</span>
+                        <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+                        <span class="n">fill_color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+                        <span class="n">popup</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'&lt;strong&gt;Country&lt;/strong&gt;: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="s1">'&lt;br&gt;'</span>
+                                <span class="s1">'&lt;strong&gt;Confirmed&lt;/strong&gt;: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;br&gt;'</span><span class="p">)</span>
+                        <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">world_map</span><span class="p">)</span>
+<span class="n">world_map</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="./2019-nCoV-Viz_files/saved_resource(2).html" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check data for China</span>
+<span class="n">china_cases</span><span class="o">=</span><span class="n">data_latest</span><span class="p">[</span><span class="n">data_latest</span><span class="p">[</span><span class="s1">'Country'</span><span class="p">]</span><span class="o">==</span><span class="s1">'China'</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'Confirmed'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">china_cases</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Province/State</th>
+      <th>Country</th>
+      <th>Last Update</th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1569</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Hubei</td>
+      <td>China</td>
+      <td>2020-02-16T23:53:01</td>
+      <td>58182</td>
+      <td>1696</td>
+      <td>6639</td>
+    </tr>
+    <tr>
+      <th>1570</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Guangdong</td>
+      <td>China</td>
+      <td>2020-02-16T12:03:06</td>
+      <td>1316</td>
+      <td>2</td>
+      <td>465</td>
+    </tr>
+    <tr>
+      <th>1571</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Henan</td>
+      <td>China</td>
+      <td>2020-02-16T13:53:03</td>
+      <td>1231</td>
+      <td>13</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <th>1572</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Zhejiang</td>
+      <td>China</td>
+      <td>2020-02-16T09:33:02</td>
+      <td>1167</td>
+      <td>0</td>
+      <td>456</td>
+    </tr>
+    <tr>
+      <th>1573</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>Hunan</td>
+      <td>China</td>
+      <td>2020-02-16T13:13:04</td>
+      <td>1004</td>
+      <td>3</td>
+      <td>464</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pie chart to check distribution outside Hubei Province</span>
+<span class="n">explode</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">china_cases</span><span class="p">)</span><span class="o">-</span><span class="mi">11</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">china_cases</span><span class="p">[</span><span class="s1">'Confirmed'</span><span class="p">][</span><span class="mi">1</span><span class="p">:],</span><span class="n">labels</span><span class="o">=</span><span class="n">china_cases</span><span class="p">[</span><span class="s1">'Province/State'</span><span class="p">][</span><span class="mi">1</span><span class="p">:],</span><span class="n">autopct</span><span class="o">=</span><span class="s1">'</span><span class="si">%1.1f%%</span><span class="s1">'</span><span class="p">,</span><span class="n">explode</span><span class="o">=</span><span class="n">explode</span><span class="p">);</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<img src="./2019-nCoV-Viz_files/q5y6t72dja.png">
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot confirmed &amp; recover cases data outside Hubei Province</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">"Confirmed"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"Province/State"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">china_cases</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"lightcoral"</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">"Recovered"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"Province/State"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">china_cases</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"palegreen"</span><span class="p">);</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<img src="./2019-nCoV-Viz_files/q5y6t7bnhm.png">
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load China's coordinates</span>
+<span class="n">china_coordinates</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"/home/kesci/input/2019ncov5600/china_Province_coordinates.csv"</span><span class="p">)</span>
+<span class="n">china_coordinates</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>name2</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>name3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>110000</td>
+      <td>北京市</td>
+      <td>北京</td>
+      <td>116.395645</td>
+      <td>39.929986</td>
+      <td>beijing</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>120000</td>
+      <td>天津市</td>
+      <td>天津</td>
+      <td>117.210813</td>
+      <td>39.143930</td>
+      <td>tianjin</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>310000</td>
+      <td>上海市</td>
+      <td>上海</td>
+      <td>121.487900</td>
+      <td>31.249162</td>
+      <td>shanghai</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>500000</td>
+      <td>重庆市</td>
+      <td>重庆</td>
+      <td>106.530635</td>
+      <td>29.544606</td>
+      <td>chongqing</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>130000</td>
+      <td>河北省</td>
+      <td>河北</td>
+      <td>115.661434</td>
+      <td>38.613840</td>
+      <td>hebei</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># fix the column name to match and join the two tables</span>
+<span class="n">china_coordinates</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'name3'</span><span class="p">:</span><span class="s1">'Province/State'</span><span class="p">},</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">china_cases</span><span class="p">[</span><span class="s1">'Province/State'</span><span class="p">]</span><span class="o">=</span><span class="n">china_cases</span><span class="p">[</span><span class="s1">'Province/State'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">china_data</span> <span class="o">=</span> <span class="n">china_cases</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">china_coordinates</span><span class="p">)</span>
+<span class="n">china_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Province/State</th>
+      <th>Country</th>
+      <th>Last Update</th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+      <th>id</th>
+      <th>name</th>
+      <th>name2</th>
+      <th>lon</th>
+      <th>lat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>hubei</td>
+      <td>China</td>
+      <td>2020-02-16T23:53:01</td>
+      <td>58182</td>
+      <td>1696</td>
+      <td>6639</td>
+      <td>420000</td>
+      <td>湖北省</td>
+      <td>湖北</td>
+      <td>112.410562</td>
+      <td>31.209316</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>guangdong</td>
+      <td>China</td>
+      <td>2020-02-16T12:03:06</td>
+      <td>1316</td>
+      <td>2</td>
+      <td>465</td>
+      <td>440000</td>
+      <td>广东省</td>
+      <td>广东</td>
+      <td>113.394818</td>
+      <td>23.408004</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>henan</td>
+      <td>China</td>
+      <td>2020-02-16T13:53:03</td>
+      <td>1231</td>
+      <td>13</td>
+      <td>440</td>
+      <td>410000</td>
+      <td>河南省</td>
+      <td>河南</td>
+      <td>113.486804</td>
+      <td>34.157184</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>zhejiang</td>
+      <td>China</td>
+      <td>2020-02-16T09:33:02</td>
+      <td>1167</td>
+      <td>0</td>
+      <td>456</td>
+      <td>330000</td>
+      <td>浙江省</td>
+      <td>浙江</td>
+      <td>119.957202</td>
+      <td>29.159494</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-02-16 20:44:00</td>
+      <td>hunan</td>
+      <td>China</td>
+      <td>2020-02-16T13:13:04</td>
+      <td>1004</td>
+      <td>3</td>
+      <td>464</td>
+      <td>430000</td>
+      <td>湖南省</td>
+      <td>湖南</td>
+      <td>111.720664</td>
+      <td>27.695864</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot the distribution in China</span>
+<span class="n">latitude</span> <span class="o">=</span> <span class="mf">39.91666667</span>
+<span class="n">longitude</span> <span class="o">=</span> <span class="mf">116.383333</span>
+ 
+<span class="n">china_map1</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">china_map1</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="./2019-nCoV-Viz_files/saved_resource(3).html" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot Wuhan first</span>
+
+<span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">([</span><span class="n">china_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'lat'</span><span class="p">],</span><span class="n">china_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'lon'</span><span class="p">]],</span>
+                    <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+                    <span class="n">fill_color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+                    <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                    <span class="n">popup</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'&lt;strong&gt;Province&lt;/strong&gt;: 湖北&lt;br&gt;'</span>
+                        <span class="s1">'&lt;strong&gt;Confirmed: &lt;/strong&gt;'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">china_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'Confirmed'</span><span class="p">])</span> <span class="o">+</span> <span class="s1">'&lt;br&gt;'</span><span class="p">),</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">china_map1</span><span class="p">)</span>
+<span class="n">china_map1</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="./2019-nCoV-Viz_files/saved_resource(4).html" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot the rest</span>
+<span class="k">for</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+    <span class="n">china_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="s1">'lat'</span><span class="p">],</span> 
+    <span class="n">china_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="s1">'lon'</span><span class="p">],</span> 
+    <span class="n">china_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="s1">'Confirmed'</span><span class="p">],</span>
+    <span class="n">china_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="s1">'name2'</span><span class="p">]):</span>
+    
+    <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">([</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span>
+                        <span class="n">radius</span><span class="o">=</span><span class="n">value</span><span class="o">*</span><span class="mf">0.01</span><span class="p">,</span>
+                        <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+                        <span class="n">fill_color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>
+                        <span class="n">popup</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'&lt;strong&gt;Province/Municipal City&lt;/strong&gt;: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;br&gt;'</span>
+                                <span class="s1">'&lt;strong&gt;Confirmed&lt;/strong&gt;: '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;br&gt;'</span><span class="p">)</span>
+                        <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">china_map1</span><span class="p">)</span>
+<span class="n">china_map1</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="./2019-nCoV-Viz_files/saved_resource(5).html" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="More-Visualization---Dynamic-Map">More Visualization - Dynamic Map<a class="anchor-link" href="https://www.kesci.com/api/labs/5e4d17e480da780037bfc5f1/RenderedContent#More-Visualization---Dynamic-Map">¶</a></h3>
+</div>
+</div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load another dataset which has more detailed info</span>
+<span class="n">china_history</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'/home/kesci/input/ncov6321/DXYArea.csv'</span><span class="p">)</span>
+<span class="n">china_history</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>provinceName</th>
+      <th>provinceEnglishName</th>
+      <th>province_zipCode</th>
+      <th>cityName</th>
+      <th>cityEnglishName</th>
+      <th>city_zipCode</th>
+      <th>province_confirmedCount</th>
+      <th>province_suspectedCount</th>
+      <th>province_curedCount</th>
+      <th>province_deadCount</th>
+      <th>city_confirmedCount</th>
+      <th>city_suspectedCount</th>
+      <th>city_curedCount</th>
+      <th>city_deadCount</th>
+      <th>updateTime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>广东省</td>
+      <td>Guangdong</td>
+      <td>440000</td>
+      <td>深圳</td>
+      <td>Shenzhen</td>
+      <td>440300.0</td>
+      <td>1322</td>
+      <td>0</td>
+      <td>494</td>
+      <td>4</td>
+      <td>415</td>
+      <td>0</td>
+      <td>131</td>
+      <td>2</td>
+      <td>2020-02-17 17:09:18.718</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>广东省</td>
+      <td>Guangdong</td>
+      <td>440000</td>
+      <td>广州</td>
+      <td>Guangzhou</td>
+      <td>440100.0</td>
+      <td>1322</td>
+      <td>0</td>
+      <td>494</td>
+      <td>4</td>
+      <td>339</td>
+      <td>0</td>
+      <td>131</td>
+      <td>0</td>
+      <td>2020-02-17 17:09:18.718</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>广东省</td>
+      <td>Guangdong</td>
+      <td>440000</td>
+      <td>东莞</td>
+      <td>Dongguan</td>
+      <td>441900.0</td>
+      <td>1322</td>
+      <td>0</td>
+      <td>494</td>
+      <td>4</td>
+      <td>89</td>
+      <td>0</td>
+      <td>15</td>
+      <td>1</td>
+      <td>2020-02-17 17:09:18.718</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>广东省</td>
+      <td>Guangdong</td>
+      <td>440000</td>
+      <td>佛山</td>
+      <td>Foshan</td>
+      <td>440600.0</td>
+      <td>1322</td>
+      <td>0</td>
+      <td>494</td>
+      <td>4</td>
+      <td>84</td>
+      <td>0</td>
+      <td>23</td>
+      <td>0</td>
+      <td>2020-02-17 17:09:18.718</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>广东省</td>
+      <td>Guangdong</td>
+      <td>440000</td>
+      <td>珠海</td>
+      <td>Zhuhai</td>
+      <td>440400.0</td>
+      <td>1322</td>
+      <td>0</td>
+      <td>494</td>
+      <td>4</td>
+      <td>97</td>
+      <td>0</td>
+      <td>41</td>
+      <td>0</td>
+      <td>2020-02-17 17:09:18.718</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># preprocessing, remove unnecessary columns</span>
+<span class="n">china_history</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span>
+    <span class="s1">'province_confirmedCount'</span><span class="p">,</span> 
+    <span class="s1">'province_suspectedCount'</span><span class="p">,</span> 
+    <span class="s1">'province_curedCount'</span><span class="p">,</span> 
+    <span class="s1">'province_deadCount'</span><span class="p">],</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># change updateTime to pd's datetime form</span>
+<span class="n">china_history</span><span class="p">[</span><span class="s1">'updateTime'</span><span class="p">]</span><span class="o">=</span><span class="n">china_history</span><span class="p">[</span><span class="s1">'updateTime'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load detailed coordinates data</span>
+<span class="n">china_coor2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'/home/kesci/input/chinacoor9160/china_coordinates.csv'</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">china_coor2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>110000</td>
+      <td>北京市</td>
+      <td>116.395645</td>
+      <td>39.929986</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110101</td>
+      <td>东城区</td>
+      <td>113.612838</td>
+      <td>37.857865</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>110102</td>
+      <td>西城区</td>
+      <td>113.612838</td>
+      <td>37.857865</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110105</td>
+      <td>朝阳区</td>
+      <td>116.521695</td>
+      <td>39.958953</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>110106</td>
+      <td>丰台区</td>
+      <td>116.258370</td>
+      <td>39.841938</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">china_coor2</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">'code'</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s1">'cityName'</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">'lon'</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">'lat'</span><span class="p">},</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">china_coor2</span><span class="p">[</span><span class="s1">'cityName'</span><span class="p">]</span><span class="o">=</span><span class="n">china_coor2</span><span class="p">[</span><span class="s1">'cityName'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">china_coor2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[48]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>code</th>
+      <th>cityName</th>
+      <th>lon</th>
+      <th>lat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>110000</td>
+      <td>北京</td>
+      <td>116.395645</td>
+      <td>39.929986</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>110101</td>
+      <td>东城</td>
+      <td>113.612838</td>
+      <td>37.857865</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>110102</td>
+      <td>西城</td>
+      <td>113.612838</td>
+      <td>37.857865</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>110105</td>
+      <td>朝阳</td>
+      <td>116.521695</td>
+      <td>39.958953</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>110106</td>
+      <td>丰台</td>
+      <td>116.258370</td>
+      <td>39.841938</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">china_history_data</span><span class="o">=</span><span class="n">china_history</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">china_coor2</span><span class="p">)</span>
+<span class="n">china_history_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>provinceName</th>
+      <th>provinceEnglishName</th>
+      <th>province_zipCode</th>
+      <th>cityName</th>
+      <th>cityEnglishName</th>
+      <th>city_zipCode</th>
+      <th>city_confirmedCount</th>
+      <th>city_suspectedCount</th>
+      <th>city_curedCount</th>
+      <th>city_deadCount</th>
+      <th>updateTime</th>
+      <th>code</th>
+      <th>lon</th>
+      <th>lat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>广东省</td>
+      <td>Guangdong</td>
+      <td>440000</td>
+      <td>深圳</td>
+      <td>Shenzhen</td>
+      <td>440300.0</td>
+      <td>415</td>
+      <td>0</td>
+      <td>131</td>
+      <td>2</td>
+      <td>2020-02-17</td>
+      <td>440300</td>
+      <td>114.025974</td>
+      <td>22.546054</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>广东省</td>
+      <td>Guangdong</td>
+      <td>440000</td>
+      <td>深圳</td>
+      <td>Shenzhen</td>
+      <td>440300.0</td>
+      <td>415</td>
+      <td>0</td>
+      <td>131</td>
+      <td>2</td>
+      <td>2020-02-17</td>
+      <td>440300</td>
+      <td>114.025974</td>
+      <td>22.546054</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>广东省</td>
+      <td>Guangdong</td>
+      <td>440000</td>
+      <td>深圳</td>
+      <td>Shenzhen</td>
+      <td>440300.0</td>
+      <td>415</td>
+      <td>0</td>
+      <td>131</td>
+      <td>2</td>
+      <td>2020-02-17</td>
+      <td>440300</td>
+      <td>114.025974</td>
+      <td>22.546054</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>广东省</td>
+      <td>Guangdong</td>
+      <td>440000</td>
+      <td>深圳</td>
+      <td>Shenzhen</td>
+      <td>440300.0</td>
+      <td>415</td>
+      <td>0</td>
+      <td>131</td>
+      <td>2</td>
+      <td>2020-02-17</td>
+      <td>440300</td>
+      <td>114.025974</td>
+      <td>22.546054</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>广东省</td>
+      <td>Guangdong</td>
+      <td>440000</td>
+      <td>深圳</td>
+      <td>Shenzhen</td>
+      <td>440300.0</td>
+      <td>415</td>
+      <td>0</td>
+      <td>131</td>
+      <td>2</td>
+      <td>2020-02-17</td>
+      <td>440300</td>
+      <td>114.025974</td>
+      <td>22.546054</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To create a dynamic map, we need a three-dimensional array like [[[Y1,X1,W1],...,[Y1,X1,W1]],[[Y1,X1,W1],...,[Y1,X1,W1]],...,[[Y1,X1,W1],...,[Y1,X1,W1]]]，the outermost is time, inside includes coordinates and values.</p>
+
+</div>
+</div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># filter out the time</span>
+<span class="n">update_time</span><span class="o">=</span><span class="n">china_history_data</span><span class="p">[</span><span class="s1">'updateTime'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a 3-dim array</span>
+<span class="n">data_move</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">update_time</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="n">tmp_pd</span><span class="o">=</span><span class="n">china_history_data</span><span class="p">[</span><span class="n">china_history_data</span><span class="p">[</span><span class="s1">'updateTime'</span><span class="p">]</span><span class="o">==</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">data_move</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp_pd</span><span class="p">[[</span><span class="s1">'lat'</span><span class="p">,</span><span class="s1">'lon'</span><span class="p">,</span><span class="s1">'city_confirmedCount'</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create dynamic map with folium, auto_paly set to True</span>
+<span class="n">dynamic_map</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plugins</span><span class="o">.</span><span class="n">HeatMapWithTime</span><span class="p">(</span><span class="n">data_move</span><span class="p">[:</span><span class="mi">15</span><span class="p">],</span><span class="n">auto_play</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">dynamic_map</span>
+</pre></div>
+
+</div></div>
+</div>
+
+<div class="output_wrapper"><div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[54]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="./2019-nCoV-Viz_files/saved_resource(6).html" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+
+</div>
+
+</div></div>
+
+    </div>
+</div><div class="cell border-box-sizing code_cell rendered">
+    <div style="display: block">
+    <div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell"><div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div></div>
+</div>
+
+    </div>
+</div></div></div>
+    </div>
+  </div>
+  <script src="./2019-nCoV-Viz_files/notebook.js" type="text/javascript"></script>
+  <script src="./2019-nCoV-Viz_files/MathJax.js" type="text/javascript"></script>
+
+
+</body><div id="__genieContainer" style="all: initial;"></div></html>
